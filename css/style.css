@@ -1,0 +1,306 @@
+
+/* APLICAR EL BORDER BOX A TODO PARA MEJORAR LOS TAMANOS */
+
+html{
+    box-sizing: border-box;
+    font-size: 62.5%; /*1 rem = 10px*/
+}
+*,*:before, *:after{
+    box-sizing: inherit;
+}
+/* *********************************************** */
+/* Globales */
+body{
+    font-family:'Raleway', sans-serif;
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+h1,h2, h3{
+    font-family: 'Playfair Display', serif;
+    margin:0 0 5rem 0; /*Quitar margenes default*/ /*top, right, bottom y left*/
+}
+
+h1{
+    font-size: 5rem;
+}
+h2{
+    font-size: 4rem;
+}
+h3{
+    font-size: 3rem;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.contenedor{
+    max-width: 120rem;
+    margin: 0 auto; /*Para centrar*/
+}
+
+.contenedor2{
+    max-width: 100rem;
+    margin: 0 auto;
+}
+
+img{
+    max-width: 100%;
+    display: block; /*Sacar separacion por defecto de las imagenes*/
+}
+/* header */
+.nombreSitio{
+    margin-top: 5rem;
+    text-align: center;
+}
+.nombreSitio span{
+    color: #eb7725;
+}
+
+.hero{
+    background-image: url(../img/principal.jpg);
+    height: 55rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/* Navegacion */
+.contenedorNavegacion{
+    border-top: #e1e1e1 solid 1px;
+}
+.navPrincipal{
+    /* padding: 50px 0px 30px 20px; top, right, bottom y left */
+    padding: 2rem 0rem;  
+    display: flex;
+    justify-content: space-around; 
+
+}
+
+.navPrincipal a:hover{
+    font-weight: 900;
+}
+
+/* ************* Categorias de Productos ****************** */
+.listadoCategorias{
+    display: grid;
+    /* grid-template-columns: 200px 200px 200px 200px; */
+    /* grid-template-columns: repeat(4,200px); */
+    grid-template-columns: repeat(3,1fr);
+    gap: 2rem;
+}
+
+.categorias{
+    padding-top: 5rem;
+}
+
+.categorias h2{
+    text-align: center;
+}
+
+.categoriaBox a{
+    display: block;
+    text-align: center;
+    padding: 2rem;
+    font-size: 2rem;
+}
+
+.categoriaBox a:hover{
+    background-color:#eb7725;
+    color: white;
+    /* font-size: 22px; */
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+
+/* Parte de nosotros */
+
+.sobreNosotros{
+    background-image: linear-gradient(to right, transparent 50%, #eb7725 50%,#eb7725 100%), url(../img/nosotros.jpg);
+    padding: 10rem 0;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 100%, 120rem;   
+}
+
+/* .sobreNosotrosGrid{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 8rem;
+}
+
+.textoNosotros{
+    grid-column: 2 / 3;
+} */
+
+.sobreNosotrosFlex{
+    display:flex;
+    justify-content: flex-end;
+}
+
+.textoNosotros{
+    flex-basis:45%; /*partir el flex en dos como su fuera un grid*/
+    color: rgb(240, 240, 240);
+}
+
+
+/* LISTADO DE PRODUCTOS */
+.contenidoPrincipal{
+    padding-top: 5rem;
+}
+
+.contenidoPrincipal h2{
+    text-align: center;
+}
+
+.cajaProducto{
+    background-color: #eb7725;
+}
+
+.textoProducto{
+    text-align: center;
+    color: white;
+    padding: 2rem;
+}
+.textoProducto h3{
+    margin: 0;
+}
+
+.textoProducto p{
+    margin: 0 0 .5rem 0;
+}
+.textoProducto .precio{
+    font-size: 2.8rem;
+    font-weight: 900; 
+}
+
+.textoProducto a{
+    background-color: #8cbc00;
+    display: block;
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 1rem;
+    transition: background-color .3s ease-out; /*Transicion de 0.3 segundos*/ 
+    transition: color .3s ease; /*Transicion de 0.3 segundos a la letra*/
+}
+
+.textoProducto a:hover{
+    background-color: #7aa104;
+    color: rgb(228, 228, 228);
+}
+
+/* ************* Grid listado de productos ****************** */
+.listadoProductos{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    /* al no crear columnas se asignan automaticamente en el orden de cascada*/
+    gap: 2rem;
+}
+
+.cajaProducto:nth-child(1) /*Seleccionar el primer hijo*/{
+    grid-column: 1 / 7;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.cajaProducto:nth-child(1) img{
+   height: 43rem;
+   width: 100%;
+   object-fit: cover;
+}
+
+.cajaProducto:nth-child(2) /*Seleccionar el segundo hijo*/{
+    grid-column: 1 / 4;
+}
+.cajaProducto:nth-child(2) img,
+.cajaProducto:nth-child(3) img{
+   height: 30rem;
+   width: 100%;
+   object-fit: cover;
+}
+
+.cajaProducto:nth-child(3) /*Seleccionar el tercer hijo*/{
+    grid-column: 4 / 7;
+}
+
+.cajaProducto:nth-child(4) /*Seleccionar el cuarto hijo*/{
+    grid-column: 1 / 3;
+}
+
+.cajaProducto:nth-child(5) /*Seleccionar el quinto hijo*/{
+    grid-column: 3 / 5;
+}
+
+.cajaProducto:nth-child(6) /*Seleccionar el sexto hijo*/{
+    grid-column: 5 / 7;
+}
+
+
+/* ************* Footer ****************** */
+
+.siteFooter{
+    border-top: black 1px solid;
+    margin-top: 5rem;
+    padding-top: 5rem;
+    
+}
+
+.siteFooter h3{
+    margin-bottom: .5rem;
+}
+
+.gridFooter{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 2px;  
+    text-align: center;
+}
+
+/* .gridFooter div{
+    flex : 1; sirve para partir el flex en las partes que vos quieras y vos vas repartiendo las porciones es distintos. 
+
+} */
+
+.navegacionFooter a{
+    display: block;
+}
+
+.copy{
+    text-align: center;
+    margin-top: 4rem;
+}
+
+
+
+
+/* ************* Nosotros Pagina ****************** */
+
+.contenedor2 {
+    padding: 2rem;
+}
+
+.contenedor2 h2{
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.nosotrosGrid{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    column-gap: 4rem;
+
+}
+
+.nosotrosImagen{
+    grid-column: 1 / 3;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.nosotrosTexto{
+    grid-column: 3 / 6;
+}
